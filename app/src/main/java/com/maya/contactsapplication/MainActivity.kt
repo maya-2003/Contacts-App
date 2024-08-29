@@ -74,7 +74,7 @@ fun ContactsApp() {
                         context.startActivity(i)
                     }) {
                         Icon(
-                            imageVector = Icons.Filled.Home,
+                            painter = painterResource(id = R.drawable.ic_home),
                             contentDescription = "Home icon"
                         )
                     }
