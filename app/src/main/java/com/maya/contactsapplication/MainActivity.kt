@@ -42,6 +42,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
+import com.maya.contactsapplication.data.DataSource
+import com.maya.contactsapplication.model.Contact
 import com.maya.contactsapplication.ui.theme.ContactsApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -86,70 +88,13 @@ fun ContactsApp() {
             )
         },
     ) { innerPadding ->
-        ContactsList(modifier = Modifier.padding(innerPadding))
+        ContactsList(DataSource().getContactList(),modifier = Modifier.padding(innerPadding))
     }
 }
 
 
 @Composable
-fun ContactsList(modifier: Modifier = Modifier) {
-    val contacts = listOf(
-        Contact(
-            img = R.drawable.auntie,
-            name = R.string.auntie,
-            phone = R.string.auntie_phone
-        ),
-        Contact(
-            img = R.drawable.brother,
-            name = R.string.brother,
-            phone = R.string.brother_phone
-        ),
-        Contact(
-            img = R.drawable.daughter,
-            name = R.string.daughter,
-            phone = R.string.daughter_phone
-        ),
-        Contact(
-            img = R.drawable.friend_1,
-            name = R.string.friend_1,
-            phone = R.string.friend_1_phone
-        ),
-        Contact(
-            img = R.drawable.friend_2,
-            name = R.string.friend_2,
-            phone = R.string.friend_2_phone
-        ),
-        Contact(
-            img = R.drawable.grandfather,
-            name = R.string.grandfather,
-            phone = R.string.grandfather_phone
-        ),
-        Contact(
-            img = R.drawable.granny,
-            name = R.string.granny,
-            phone = R.string.granny_phone
-        ),
-        Contact(
-            img = R.drawable.neigbour,
-            name = R.string.neighbour,
-            phone = R.string.neighbour_phone
-        ),
-        Contact(
-            img = R.drawable.sister,
-            name = R.string.sister,
-            phone = R.string.sister_phone
-        ),
-        Contact(
-            img = R.drawable.son,
-            name = R.string.son,
-            phone = R.string.son_phone
-        ),
-        Contact(
-            img = R.drawable.uncle,
-            name = R.string.uncle,
-            phone = R.string.uncle_phone
-        )
-    )
+fun ContactsList(contacts: List<Contact>,modifier: Modifier = Modifier) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 128.dp),
         modifier = modifier.padding(),
