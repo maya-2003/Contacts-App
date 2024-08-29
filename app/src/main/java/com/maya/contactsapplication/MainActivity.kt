@@ -181,7 +181,8 @@ fun ContactListItem(contact: Contact) {
                 painter = painterResource(id = contact.img),
                 modifier = Modifier.height(150.dp),
                 contentScale = ContentScale.Crop,
-                contentDescription = "${contact.name} Image",
+                contentDescription = stringResource(id = contact.name),
+
             )
             Text(
                 text = stringResource(id = contact.name),
